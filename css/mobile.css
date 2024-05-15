@@ -1,0 +1,15 @@
+@media screen and (max-width: 520px){
+    .fuels_container,
+    .construction_container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .gosling{
+        max-width: 160px;
+        width: 50%;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        border-radius: 17px;
+    }
+}

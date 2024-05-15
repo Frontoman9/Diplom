@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Розрахунок</title>
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <script src="js/jquery-3.1.1.min.js"></script>
+</head>
+
+<body>
+    <div class="dark_wrapper">
+        <div class="fuels_container">
+            <div class="card type_of_fuel">
+                <div class="card__content radio-buttons-container" style="position: relative;">
+                    <div class="radio-button">
+                        <input name="tf" id="radio2" value="coal" class="radio-button__input" type="radio" checked>
+                        <label for="radio2" class="radio-button__label">
+                            <span class="radio-button__custom"></span>
+                            Вуголь
+                        </label>
+                    </div>
+                    <div class="radio-button">
+                        <input name="tf" id="radio1" value="gas" class="radio-button__input" type="radio">
+                        <label for="radio1" class="radio-button__label">
+                            <span class="radio-button__custom"></span>
+                            Газ
+                        </label>
+                    </div>
+                    <div class="radio-button">
+                        <input name="tf" id="radio3" value="mix" class="radio-button__input" type="radio">
+                        <label for="radio3" class="radio-button__label">
+                            <span class="radio-button__custom"></span>
+                            Сумiш
+                        </label>
+                    </div>
+                    <img class="gosling" src="img/gosling.png">
+                </div>
+                
+            </div>
+            <div class="card" data-change="coal">
+                <div class="card__content">
+                    <form id="coal">
+                        <label>
+                            <span class="el_name">C<sub>p</sub> </span>
+                            <input type="text" name="cp" value="71">
+                            <span class="el_percent">%</span>
+                        </label>
+                        <label>
+                            <span class="el_name">H<sub>p</sub> </span>
+                            <input type="text" name="hp" value="1.5">
+                            <span class="el_percent">%</span>
+                        </label>
+                        <label>
+                            <span class="el_name">O<sub>p</sub> </span>
+                            <input type="text" name="op" value="1.5">
+                            <span class="el_percent">%</span>
+                        </label>
+                        <label>
+                            <span class="el_name">N<sub>p</sub> </span>
+                            <input type="text" name="np" value="0.9">
+                            <span class="el_percent">%</span>
+                        </label>
+                        <label>
+                            <span class="el_name">S<sub>p</sub> </span>
+                            <input type="text" name="sp" value="1.8">
+                            <span class="el_percent">%</span>
+                        </label>
+                        <label>
+                            <span class="el_name">A<sub>p</sub> </span>
+                            <input type="text" name="ap" value="17.3">
+                            <span class="el_percent">%</span>
+                        </label>
+                        <label>
+                            <span class="el_name">W<sub>p</sub> </span>
+                            <input type="text" name="wp" value="6">
+                            <span class="el_percent">%</span>
+                        </label>
+                        <label>
+                            <span class="el_name">Q<sub>н</sub> </span>
+                            <input type="text" name="Q" value="5736">
+                            <span class="el_percent"><sup>ккал</sup>/<sub>кг</sub></span>
+                        </label>
+                    </form>
+                </div>
+            </div>
+            <div class="card" data-change="gas" style="display: none;">
+                <div class="card__content">
+                    <form id="gas">
+                        <label>
+                            <span class="el_name">CH<sub>4</sub> </span>
+                            <input type="text" name="ch4" value="89.845">
+                            <span class="el_percent">%</span>
+                        </label>
+                        <label>
+                            <span class="el_name">C<sub>2</sub>H<sub>6</sub> </span>
+                            <input type="text" name="c2h6" value="4.738">
+                            <span class="el_percent">%</span>
+                        </label>
+                        <label>
+                            <span class="el_name">C<sub>3</sub>H<sub>8</sub> </span>
+                            <input type="text" name="c3h8" value="1.096">
+                            <span class="el_percent">%</span>
+                        </label>
+                        <label>
+                            <span class="el_name">C<sub>4</sub>H<sub>10</sub> </span>
+                            <input type="text" name="c4h10" value="0.327">
+                            <span class="el_percent">%</span>
+                        </label>
+                        <label>
+                            <span class="el_name">C<sub>5</sub>H<sub>12</sub> </span>
+                            <input type="text" name="c5h12" value="0.085">
+                            <span class="el_percent">%</span>
+                        </label>
+                        <label>
+                            <span class="el_name">C<sub>6</sub>H<sub>14</sub> </span>
+                            <input type="text" name="c6h14" value="0.044">
+                            <span class="el_percent">%</span>
+                        </label>
+                        <label>
+                            <span class="el_name">N<sub>2</sub> </span>
+                            <input type="text" name="n2" value="0.085">
+                            <span class="el_percent">%</span>
+                        </label>
+                        <label>
+                            <span class="el_name">CO<sub>2</sub> </span>
+                            <input type="text" name="co2" value="2.23">
+                            <span class="el_percent">%</span>
+                        </label>
+                        <label>
+                            <span class="el_name">O<sub>2</sub> </span>
+                            <input type="text" name="o2" value="21">
+                            <span class="el_percent">%</span>
+                        </label>
+                        <label>
+                            <span class="el_name">Q<sub>н</sub> </span>
+                            <input type="text" name="Q" value="8283">
+                            <span class="el_percent"><sup>ккал</sup>/<sub>кг</sub></span>
+                        </label>
+                    </form>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__content">
+                    <form id="fuel_quantity">
+                        <label data-change="coal">
+                            <span class="el_name">Вугілля</span> 
+                            <input type="text" name="coal" value="24"> 
+                            <span class="el_percent"><sup>т</sup>/<sub>гoд</sub></span>
+                        </label>
+                        <label data-change="gas" style="display: none;">
+                            <span class="el_name">Газ</span> 
+                            <input type="text" name="gas" value="1.75"> 
+                            <span class="el_percent"><sub>тис</sub> <sup>м<sup>3</sup></sup>/<sub>гoд</sub></span>
+                        </label>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="btn_container"><button id="mainBtn"><span>Розрахувати</span></button></div>
+        <div id="output"></div>
+    </div>
+
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

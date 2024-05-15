@@ -1,0 +1,414 @@
+html {
+    background-color: #141414;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    /* background-image: url('../img/bg2.png'); */
+    /* background-attachment: fixed; */
+    /* background-size: 500px 500px; */
+    background-color: #05062d;
+    color: #fff;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.dark_wrapper {
+    background-color: rgba(0, 0, 0, 0.6);
+    /* background-color: #212121; */
+
+    backdrop-filter: blur(2px);
+    min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 8px 0;
+    padding: 0;
+}
+
+h1.block_title {
+    cursor: pointer;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #4e58f2;
+}
+
+.fuels_container,
+.construction_container {
+    display: flex;
+    /* flex-wrap: wrap; */
+    /* flex-direction: column; */
+    gap: 40px;
+    padding: 20px;
+
+}
+
+/* Black */
+/* .card {
+    width: 190px;
+    height: 254px;
+    border-radius: 30px;
+    background: #212121;
+    box-shadow: 15px 15px 30px rgb(25, 25, 25),
+        -15px -15px 30px rgb(60, 60, 60);
+} */
+
+/* Neon */
+.card {
+    min-width: 190px;
+    width: 340px;
+    flex-grow: 1;
+    /* min-height: 254px; */
+    border-radius: 20px;
+    padding: 5px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    background-image: linear-gradient(144deg, #AF40FF, #5B42F3 50%, #00DDEB);
+    transition: .5s;
+}
+
+.card__content {
+    background: rgb(5, 6, 45);
+    border-radius: 17px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 20px 16px;
+}
+
+
+/* Radio Button ------------------------------------------------------------------ */
+.radio-buttons-container {
+    display: flex;
+    align-items: left;
+    justify-content: start;
+    gap: 4px;
+    flex-direction: column;
+}
+
+.radio-button {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    min-height: 44px;
+}
+
+.radio-button__input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.radio-button__label {
+    width: 100%;
+    box-sizing: border-box;
+    display: inline-block;
+    padding-left: 38px;
+    /* margin-bottom: 10px; */
+    position: relative;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    text-transform: uppercase;
+    text-align: left;
+
+}
+
+.radio-button__custom {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #4a5ff1;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.radio-button__input:checked+.radio-button__label .radio-button__custom {
+    transform: translateY(-50%) scale(0.9);
+    border: 5px solid #4c8bf5;
+    color: #4c8bf5;
+}
+
+.radio-button__input:checked+.radio-button__label {
+    color: #4c8bf5;
+    padding-left: 36px;
+}
+
+.radio-button__label:hover .radio-button__custom {
+    transform: translateY(-50%) scale(1.2);
+    border-color: #4c8bf5;
+    box-shadow: 0 0 10px #4c8bf580;
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+
+
+form {
+    /* display: grid; */
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+
+    /* grid-template-columns: repeat(2, 1fr); */
+
+}
+
+form>label {
+    /* width: 100%; */
+    flex-basis: 100%;
+    text-align: left;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    /* margin: 8px 0; */
+}
+
+/* form>label .el_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 32%;
+} */
+form>label>.el_name {
+    width: 20%;
+    min-width: 60px;
+    font-size: 16px;
+    /* display: flex;
+    flex-direction: column; */
+}
+
+/* form>label>input{} */
+form>label .el_percent {
+    /* font-size: 0.8em; */
+    font-size: 14px;
+    width: 20%;
+    min-width: 50px;
+    text-align: center;
+}
+
+input[type="text"] {
+    /* width: 60px; */
+    margin: 6px 12px 6px 0;
+}
+
+input[type="text"] {
+    --input-focus: #2d8cf0;
+    --font-color: #fefefe;
+    --font-color-sub: #7e7e7e;
+    --bg-color: #111111;
+    --main-color: #fefefe;
+    width: 40%;
+    height: 28px;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 3px 3px var(--main-color);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--font-color);
+    padding: 5px 8px;
+    outline: none;
+    flex-grow: 1;
+    transition: .2s;
+}
+
+input[type="text"]::placeholder {
+    color: var(--font-color-sub);
+    opacity: 0.8;
+}
+
+input[type="text"]:focus {
+    border: 2px solid var(--input-focus);
+    box-shadow: 1px 1px var(--input-focus);
+}
+
+.formula,
+.block_container,
+.block_subcontainer {
+    padding: 12px;
+    /* border: 1px solid red; */
+}
+
+
+
+
+.formula {
+    border: none;
+}
+
+label {
+    text-align: right;
+}
+
+#output {
+    font-size: 14px;
+}
+
+table {
+    border-collapse: collapse;
+    max-width: 900px;
+    overflow-x: auto;
+    width: 100%;
+    display: block;
+}
+
+td {
+    padding: 10px 20px;
+    border: 1px solid #000;
+    text-align: center;
+}
+
+tbody>tr:nth-of-type(2n) {
+    background-color: #c5c5c5;
+}
+
+.td_titile,
+thead tr {
+    background-color: #202020;
+    color: #fff;
+    text-align: center;
+}
+
+.btn_container {
+    padding: 20px;
+}
+
+#mainBtn {
+    min-height: 44px;
+    width: 100%;
+    border-radius: 12px;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 900;
+    color: #fff;
+}
+
+/* #mainBtn {
+    height: 44px;
+    width: 100%;
+    border: 2px solid #17C3B2;
+    border-radius: 12px;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 900;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    transition: .3s;
+    z-index: 1;
+    font-family: inherit;
+    color: #17C3B2;
+}
+
+#mainBtn::before {
+    content: '';
+    width: 0;
+    height: 2400%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background: #17C3B2;
+    transition: .7s ease;
+    display: block;
+    z-index: -1;
+}
+
+#mainBtn:hover::before {
+    width: 105%;
+}
+
+#mainBtn:hover {
+    color: #111;
+} */
+
+
+/* #mainBtn{
+    padding: 0.1em 0.25em;
+    background-color: #212121;
+  border: 0.08em solid #fff;
+  border-radius: 0.3em;
+  font-size: 12px;
+}
+#mainBtn span {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0.4em;
+    height: 2.5em;
+    background-color: #212121;
+    border-radius: 0.2em;
+    font-size: 1.5em;
+    color: #fff;
+    border: 0.08em solid #fff;
+    box-shadow: 0 0.4em 0.1em 0.019em #fff;
+  }
+  
+  #mainBtn span:hover {
+    transition: all 0.5s;
+    transform: translate(0, 0.4em);
+    box-shadow: 0 0 0 0 #fff;
+  }
+  
+  #mainBtn span:not(hover) {
+    transition: all .7s;
+  } */
+
+#mainBtn {
+    --green: #4e58f2;
+    /* color: rgba(78, 89, 242, 0.1); */
+    font-size: 20px;
+    padding: 0.7em 2.7em;
+    letter-spacing: 0.06em;
+    position: relative;
+    font-family: inherit;
+    border-radius: 0.6em;
+    overflow: hidden;
+    transition: all 0.3s;
+    line-height: 1.4em;
+    border: 2px solid var(--green);
+    background: linear-gradient(to right, rgba(78, 89, 242, 0.1) 1%, transparent 40%, transparent 60%, rgba(78, 89, 242, 0.1) 100%);
+    color: var(--green);
+    box-shadow: inset 0 0 10px rgba(78, 89, 242, 0.7), 0 0 9px 3px rgba(78, 89, 242, 0.7);
+}
+
+#mainBtn:hover {
+    color: #6e76df;
+    box-shadow: inset 0 0 10px rgba(78, 89, 242, 0.7), 0 0 9px 3px rgba(78, 89, 242, 0.2);
+}
+
+#mainBtn:before {
+    content: "";
+    position: absolute;
+    left: -20em;
+    width: 20em;
+    height: 100%;
+    top: 0;
+
+    transition: transform .6s ease-in-out;
+    background: linear-gradient(to right, transparent 1%, rgba(78, 89, 242, 0.1) 40%, rgba(78, 89, 242, 0.1) 60%, transparent 100%);
+}
+
+#mainBtn:hover:before {
+    transform: translateX(98em);
+}
+.gosling{
+    max-width: 360px;
+    width: 50%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-radius: 17px;
+}
