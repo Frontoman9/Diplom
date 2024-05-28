@@ -1,15 +1,43 @@
 @media screen and (max-width: 520px){
+    button{
+        width: 100%;
+    }
+    
     .fuels_container,
-    .construction_container {
+    .convective_container {
         flex-direction: column;
         align-items: center;
+        gap: 52px;
     }
+
+    .convective_container {
+        align-items: stretch;
+    }
+
+
+    .card_title_abs{
+        height: 40px;
+        padding: 5px 5px 0;
+    }
+    
     .gosling{
         max-width: 160px;
-        width: 50%;
+        width: 20%;
         position: absolute;
         right: 0;
         bottom: 0;
         border-radius: 17px;
+    }
+
+    .convective_item::before {
+        left: 6px;
+        border-radius: 8px 8px 0 0;
+        top: -31px;
+    }
+
+    .delete_convective{
+        position: absolute;
+        top: -30px;
+        right: 6px;
     }
 }
