@@ -48,6 +48,10 @@ h1.block_title {
     cursor: pointer;
     padding-bottom: 12px;
     border-bottom: 2px solid #4e58f2;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    background-color: #030215;
 }
 
 .fuels_container,
