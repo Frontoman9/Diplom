@@ -15,33 +15,42 @@
     <div class="dark_wrapper">
         <div class="fuels_container">
             <div class="card type_of_fuel">
+                <div class="card_title_abs">
+                    <div class="card_title_content">
+                        Паливо
+                    </div>
+                </div>
                 <div class="card__content radio-buttons-container" style="position: relative;">
-                    <div class="radio-button">
+                    <!-- <div class="radio-button">
                         <input name="tf" id="radio2" value="coal" class="radio-button__input" type="radio">
                         <label for="radio2" class="radio-button__label">
                             <span class="radio-button__custom"></span>
                             Вуголь
                         </label>
-                    </div>
+                    </div> -->
                     <div class="radio-button">
-                        <input name="tf" id="radio1" value="gas" class="radio-button__input" type="radio">
+                        <input name="tf" id="radio1" value="gas" class="radio-button__input" type="radio" checked>
                         <label for="radio1" class="radio-button__label">
                             <span class="radio-button__custom"></span>
                             Газ
                         </label>
                     </div>
-                    <div class="radio-button">
-                        <input name="tf" id="radio3" value="mix" class="radio-button__input" type="radio" checked>
+                    <!-- <div class="radio-button">
+                        <input name="tf" id="radio3" value="mix" class="radio-button__input" type="radio" >
                         <label for="radio3" class="radio-button__label">
                             <span class="radio-button__custom"></span>
                             Сумiш
                         </label>
-                    </div>
+                    </div> -->
                     <img class="gosling" src="img/gosling.png">
                 </div>
-                
             </div>
-            <div class="card" data-change="coal">
+            <!-- <div class="card" data-change="coal" style="display: none;">
+                <div class="card_title_abs">
+                    <div class="card_title_content">
+                        Склад
+                    </div>
+                </div>
                 <div class="card__content">
                     <form id="coal">
                         <label>
@@ -86,128 +95,212 @@
                         </label>
                     </form>
                 </div>
-            </div>
+            </div> -->
             <div class="card" data-change="gas">
+                <div class="card_title_abs">
+                    <div class="card_title_content">
+                        Склад
+                    </div>
+                </div>
                 <div class="card__content">
                     <form id="gas">
                         <label>
-                            <span class="el_name">CH<sub>4</sub> </span>
+                            <span class="el_name">CH<sub>4</sub>, % </span>
                             <input type="text" name="ch4" value="89.845">
-                            <span class="el_percent">%</span>
+                            <!-- <span class="el_percent">%</span> -->
                         </label>
                         <label>
-                            <span class="el_name">C<sub>2</sub>H<sub>6</sub> </span>
+                            <span class="el_name">C<sub>2</sub>H<sub>6</sub>, % </span>
                             <input type="text" name="c2h6" value="4.738">
-                            <span class="el_percent">%</span>
+                            <!-- <span class="el_percent">%</span> -->
                         </label>
                         <label>
-                            <span class="el_name">C<sub>3</sub>H<sub>8</sub> </span>
+                            <span class="el_name">C<sub>3</sub>H<sub>8</sub>, % </span>
                             <input type="text" name="c3h8" value="1.096">
-                            <span class="el_percent">%</span>
+                            <!-- <span class="el_percent">%</span> -->
                         </label>
                         <label>
-                            <span class="el_name">C<sub>4</sub>H<sub>10</sub> </span>
+                            <span class="el_name">C<sub>4</sub>H<sub>10</sub>, % </span>
                             <input type="text" name="c4h10" value="0.327">
-                            <span class="el_percent">%</span>
+                            <!-- <span class="el_percent">%</span> -->
                         </label>
                         <label>
-                            <span class="el_name">C<sub>5</sub>H<sub>12</sub> </span>
+                            <span class="el_name">C<sub>5</sub>H<sub>12</sub>, % </span>
                             <input type="text" name="c5h12" value="0.085">
-                            <span class="el_percent">%</span>
+                            <!-- <span class="el_percent">%</span> -->
                         </label>
                         <label>
-                            <span class="el_name">C<sub>6</sub>H<sub>14</sub> </span>
+                            <span class="el_name">C<sub>6</sub>H<sub>14</sub>, % </span>
                             <input type="text" name="c6h14" value="0.044">
-                            <span class="el_percent">%</span>
+                            <!-- <span class="el_percent">%</span> -->
                         </label>
                         <label>
-                            <span class="el_name">N<sub>2</sub> </span>
+                            <span class="el_name">N<sub>2</sub>, % </span>
                             <input type="text" name="n2" value="0.085">
-                            <span class="el_percent">%</span>
+                            <!-- <span class="el_percent">%</span> -->
                         </label>
                         <label>
-                            <span class="el_name">CO<sub>2</sub> </span>
+                            <span class="el_name">CO<sub>2</sub>, % </span>
                             <input type="text" name="co2" value="2.23">
-                            <span class="el_percent">%</span>
+                            <!-- <span class="el_percent">%</span> -->
                         </label>
                         <label>
-                            <span class="el_name">O<sub>2</sub> </span>
+                            <span class="el_name">O<sub>2</sub>, % </span>
                             <input type="text" name="o2" value="21">
-                            <span class="el_percent">%</span>
+                            <!-- <span class="el_percent">%</span> -->
                         </label>
                         <label>
-                            <span class="el_name">Q<sub>н</sub> </span>
+                            <span class="el_name">Q<sub>н</sub>, <sup>ккал</sup>/<sub>кг</sub> </span>
                             <input type="text" name="Q" value="8283">
-                            <span class="el_percent"><sup>ккал</sup>/<sub>кг</sub></span>
+                            <!-- <span class="el_percent"><sup>ккал</sup>/<sub>кг</sub></span> -->
                         </label>
                     </form>
                 </div>
             </div>
             <div class="card">
+                <div class="card_title_abs">
+                    <div class="card_title_content">
+                        Витрата
+                    </div>
+                </div>
                 <div class="card__content">
                     <form id="fuel_quantity">
-                        <label data-change="coal">
-                            <span class="el_name">Вугілля</span> 
-                            <input type="text" name="coal" value="24"> 
+                        <!-- <label data-change="coal" style="display: none;">
+                            <span class="el_name">Вугілля</span>
+                            <input type="text" name="coal" value="24">
                             <span class="el_percent"><sup>т</sup>/<sub>гoд</sub></span>
-                        </label>
-                        <label data-change="gas" style="display: none;">
-                            <span class="el_name">Газ</span> 
-                            <input type="text" name="gas" value="1.75"> 
-                            <span class="el_percent"><sub>тис</sub> <sup>м<sup>3</sup></sup>/<sub>гoд</sub></span>
+                        </label> -->
+                        <label data-change="gas">
+                            <span class="el_name">Газ, <sub>тис</sub> <sup>м<sup>3</sup></sup>/<sub>гoд</sub></span>
+                            <input type="text" name="gas" value="1.75">
+                            <!-- <span class="el_percent"><sub>тис</sub> <sup>м<sup>3</sup></sup>/<sub>гoд</sub></span> -->
                         </label>
                     </form>
-                    
+
                 </div>
             </div>
         </div>
 
-        <!-- <div class="construction_container">
+        <div class="construction_container">
             <div class="card">
+                <div class="card_title_abs">
+                    <div class="card_title_content">
+                        Топка
+                    </div>
+                </div>
                 <div class="card__content">
-                    <form id="furnaceConstr">
+                    <form data-convective="true" id="furnaceConstr" data-delta="0.035" data-name="Т">
                         <label>
-                            <span class="">Повна поверхня стін</span>
-                            <input type="text" name="fullFurnaceS" value="566">
-                            <span class="">м<sup>2</sup></span>
+                            <span class="el_name">Повна поверхня стін, м<sup>2</sup></span>
+                            <input type="text" name="F" value="566">
+
                         </label>
                         <label>
-                            <span class="">Об’єм топки</span>
-                            <input type="text" name="fullFurnaceS" value="1270">
-                            <span class="">м<sup>3</sup></span>
+                            <span class="el_name">Об’єм топки, м<sup></span>
+                            <input type="text" name="V_furnace" value="1270">
+                            </span>
                         </label>
                         <label>
-                            <span class="">Крок труб</span>
-                            <input type="text" name="fullFurnaceS" value="64">
-                            <span class="">мм</span>
+                            <span class="el_name">Крок труб, мм</span>
+                            <input type="text" name="s_pipe" value="64">
+
                         </label>
                         <label>
-                            <span class="">Діаметр труб</span>
-                            <input type="text" name="fullFurnaceS" value="60">
-                            <span class="">мм</span>
+                            <span class="el_name">Діаметр труб, мм</span>
+                            <input type="text" name="d_pipe" value="60">
+
                         </label>
                         <label>
-                            <span class="">Висота до факелу</span>
-                            <input type="text" name="fullFurnaceS" value="10165">
-                            <span class="">мм</span>
+                            <span class="el_name">Висота до факелу, мм</span>
+                            <input type="text" name="h_hight" value="10165">
+
                         </label>
                         <label>
-                            <span class="">Висота топки</span>
-                            <input type="text" name="fullFurnaceS" value="28800">
-                            <span class="">мм</span>
+                            <span class="el_name">Висота топки, мм</span>
+                            <input type="text" name="H_hight" value="28800">
+
                         </label>
                         <label>
-                            <span class="">Температура димових газів на виході із топки (теоретично можлива)</span>
-                            <input type="text" name="fullFurnaceS" value="1100">
-                            <span class="">°C</span>
+                            <span class="el_name">Температура димових газів на виході із топки (теоретично можлива),
+                                °C</span>
+                            <input type="text" name="V_temp" value="1100">
+
                         </label>
                     </form>
                 </div>
             </div>
-        </div> -->
+        </div>
 
-        <div class="btn_container"><button id="mainBtn"><span>Розрахувати</span></button></div>
+        <div class="construction_container">
+            <div class="card">
+                <div class="card_title_abs">
+                    <div class="card_title_content">
+                        Конвективні поверхні
+                    </div>
+                </div>
+                <div class="card__content">
+                    <div class="convective_container">
+                        <div class="convective_add_block">
+                            <button id="convectiveAdd">
+                                Додати поверхню
+                            </button>
+                        </div>
+
+
+                        <div class="convective_bloks">
+                            
+                            <div class="convective_item" data-target="ВЕ">
+                                <form data-convective="true" data-delta="0.025" data-name="ВЕ">
+                                    <label>
+                                        <span class="el_name">Повна поверхня, м<sup>2</sup></span>
+                                        <input type="text" name="F" value="100">
+                                    </label>
+                                </form>
+                                <div class="delete_convective">
+                                    &#10005;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn_container">
+            <button id="mainBtn">
+                <span>Розрахувати</span>
+            </button>
+        </div>
         <div id="output"></div>
+    </div>
+
+    <div class="hidden_serv">
+        <div class="convective_item" data-target="ВЕ">
+            <form data-convective="true" data-copy="true" data-delta="0.025" data-name="ВЕ">
+                <label>
+                    <span class="el_name">Повна поверхня, м<sup>2</sup></span>
+                    <input type="text" name="F" value="100">
+                </label>
+            </form>
+            <div class="delete_convective">
+                &#10005;
+            </div>
+        </div>
+    </div>
+
+    <div class="modal_page">
+        <div class="modal_wrapper">
+            <div class="modal">
+                <h2 class="modal_title">
+                    Оберіть конвективну поверхню
+                </h2>
+                <select id="convectipeType">
+                    <option value="ВЕ">ВЕ</option>
+                </select>
+
+                <button id="acessConvective">Додати</button>
+            </div>
+        </div>
     </div>
 
 
