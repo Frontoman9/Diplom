@@ -39,6 +39,32 @@ window.addEventListener('load', () => {
             $(`[data-change=${fuelType}]`).fadeIn(500);
         }
     })
+
+    $('#convectiveAdd').on('click', function () {
+        $('.modal_page').fadeIn(300)
+    })
+
+    $('#acessConvective').on('click', function () {
+        let conectiveForm = $('.hidden_serv').find(`[data-target=${$('#convectipeType').val()}]`).clone();
+
+        conectiveForm.find('form').removeAttr('data-copy')
+
+        conectiveForm.appendTo('.convective_bloks');
+        $('.modal_page').fadeOut(300)
+    })
+
+    $('.modal_page').on('click', function (e) {
+        let target = e.target.closest('.modal')
+
+        if (target) return;
+        $('.modal_page').fadeOut(300)
+    })
+
+    $('.convective_bloks').on('click', '.delete_convective', function (e) {
+
+        let target = $(e.target)
+        target.parent('.convective_item').remove()
+    })
 })
 
 // Functions ------------------------------------------------------------------------------------------------
@@ -121,60 +147,56 @@ class Boiler {
         };
         // Будова котла (Топка, ПП і тд)
         this.build = [
-            {
-                name: 'Т',
-                id: 1,
-                alphaDelta: 0.035,
-                alpha: 0,
-                F: 566,
-                V_furnace: 1270,
-                s_pipe: 64,
-                d_pipe: 60,
-                h_hight: 10165,
-                H_hight: 28800,
-
-                V_temp: 1200,
-
-
-
-                construct_calc: {}
-            },
-            {
-                name: 'ПП',
-                id: 2,
-                alphaDelta: 0.05,
-                alpha: 0
-            },
-            {
-                name: 'ПП',
-                id: 3,
-                alphaDelta: 0.05,
-                alpha: 0
-            },
-            {
-                name: 'ВЕ',
-                id: 4,
-                alphaDelta: 0.025,
-                alpha: 0
-            },
-            {
-                name: 'ПВ',
-                id: 5,
-                alphaDelta: 0.025,
-                alpha: 0
-            },
-            {
-                name: 'ВЕ',
-                id: 6,
-                alphaDelta: 0.025,
-                alpha: 0
-            },
-            {
-                name: 'ПВ',
-                id: 7,
-                alphaDelta: 0.025,
-                alpha: 0
-            }
+            // {
+            //     name: 'Т',
+            //     id: 1,
+            //     alphaDelta: 0.035,
+            //     alpha: 0,
+            //     F: 566,
+            //     V_furnace: 1270,
+            //     s_pipe: 64,
+            //     d_pipe: 60,
+            //     h_hight: 10165,
+            //     H_hight: 28800,
+            //     V_temp: 1200,
+            //     construct_calc: {}
+            // },
+            // {
+            //     name: 'ПП',
+            //     id: 2,
+            //     alphaDelta: 0.05,
+            //     alpha: 0
+            // },
+            // {
+            //     name: 'ПП',
+            //     id: 3,
+            //     alphaDelta: 0.05,
+            //     alpha: 0
+            // },
+            // {
+            //     name: 'ВЕ',
+            //     id: 4,
+            //     alphaDelta: 0.025,
+            //     alpha: 0
+            // },
+            // {
+            //     name: 'ПВ',
+            //     id: 5,
+            //     alphaDelta: 0.025,
+            //     alpha: 0
+            // },
+            // {
+            //     name: 'ВЕ',
+            //     id: 6,
+            //     alphaDelta: 0.025,
+            //     alpha: 0
+            // },
+            // {
+            //     name: 'ПВ',
+            //     id: 7,
+            //     alphaDelta: 0.025,
+            //     alpha: 0
+            // }
         ]
         // Тип палива
         this.fuelType = 'coal';
@@ -407,12 +429,28 @@ class Boiler {
         $(this.output).empty();
 
         for (const form of document.forms) {
-            if (form.id != 'furnaceConstr') {
+            if (!form.dataset.convective && form.id != 'test') {
                 for (const input of form.elements) {
                     this[form.id][input.name] = +input.value
                 }
+            } else if (!form.dataset.copy) {
+                let name = form.dataset.name,
+                    alphaDelta = +form.dataset.delta,
+                    obj = {},
+                    id = this.build.length + 1;
+
+                for (const input of form.elements) {
+                    obj[input.name] = +input.value
+                }
+
+
+                this.build = [
+                    ...this.build,
+                    { name, id, alphaDelta, alpha: 0, ...obj, construct_calc: {} }
+                ]
             }
         }
+        console.log(this.build);
         this.fuelType = document.querySelector('.type_of_fuel input:checked').value;
     }
     // Тeopeтичний oб'єм cyxoгo пoвiтpя, нeoбxiдний для пoвнoгo згopaння пaливa (Coal)
@@ -757,7 +795,7 @@ class Boiler {
         Iuh = countInterpolation(min1, max1, min2, max2, this.tempUhodGas);
 
 
-        
+
         // console.log(Ihv);
 
         // min2 = this.Ig[min1 / 100 - 1];
@@ -775,7 +813,7 @@ class Boiler {
             answer
         )
 
-        
+
 
         // q6
         if (this.fuelType == 'gas') {
@@ -1069,11 +1107,11 @@ class Boiler {
         //     - 273;
 
 
-            v_shtrich_true = (T_g + 273.15) /
+        v_shtrich_true = (T_g + 273.15) /
             (
                 M_param *
                 ((
-                    (4.9 * midKoefTerrmEfficiency * alpha * F * ((T_g + 273.15)  ** 3))
+                    (4.9 * midKoefTerrmEfficiency * alpha * F * ((T_g + 273.15) ** 3))
                     /
                     ((10 ** 8) * fi * B * V_mid)
                 ) ** 0.6)
@@ -1311,26 +1349,28 @@ class Boiler {
         const Furnance = this.build[0];
 
 
-        // while (true) {
+        while (true) {
             let newTemp = this.getApproximateCalculationOfTheFurnaceGasTemperature(iteration, Furnance, Furnance.V_temp, container),
-                percentValue = Math.floor(((Furnance.V_temp - newTemp) / Furnance.V_temp) * 100);
+                // percentValue = Math.floor(((Furnance.V_temp - newTemp) / Furnance.V_temp) * 100);
+                percentValue = Math.floor((Furnance.V_temp - newTemp));
 
-            console.log('====================================');
-            console.log(iteration, percentValue);
-            console.log('====================================');
+            // console.log('====================================');
+            // console.log(iteration, percentValue);
+            // console.log('====================================');
 
 
 
 
-        //     if (percentValue <= 10 || newTemp < 600 || isNaN(newTemp)) {
-        //         break;
-        //     }
-        //     else {
-        //         Furnance.V_temp = newTemp;
-        //         iteration++;
-        //     }
+            // if (percentValue <= 10 || newTemp < 600 || isNaN(newTemp)) {
+            if (percentValue <= 120 || newTemp < 600 || isNaN(newTemp)) { // Проверяем разницу больше ли она 120 оС
+                break;
+            }
+            else {
+                Furnance.V_temp = newTemp;
+                iteration++;
+            }
 
-        // }
+        }
 
 
 
